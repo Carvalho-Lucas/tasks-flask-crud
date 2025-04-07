@@ -3,5 +3,5 @@ Flask-SQLAlchemy==3.1.1
 Flask-Cors==3.0.10
 Werkzeug==2.3.0
 
-#pip3 install Flask==2.3.0
+#pip install Flask==2.3.0
 #pip3 install -r requirements.txt
