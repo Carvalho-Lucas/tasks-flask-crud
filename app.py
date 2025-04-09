@@ -24,7 +24,6 @@ def create_task():
     new_task = Task(id=task_id_control, title=title, description=description)# cria tarefa
     task_id_control += 1
     tasks.append(new_task)
-
     return jsonify(new_task.to_dict()), 201  # Retorna a nova tarefa criada + status 201
 
 # ROTA GET - LISTAR TODAS as tarefas
@@ -57,6 +56,7 @@ def update_task(id):
     for t in tasks:
         if t.id == id:
             task = t  # Localiza a tarefa pelo ID
+            break #Dica de performace para não gastar processamento à toa.
 
     if task is None:
         return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
@@ -78,8 +78,8 @@ def delete_task(id):
     for t in tasks:
         if t.id == id:
             task = t  # Localiza a tarefa pelo ID
-            break
-        
+            break #Dica de performace para não gastar processamento à toa.
+
     if task is None:
         return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
     tasks.remove(task)
